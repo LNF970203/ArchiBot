@@ -2,3 +2,4 @@ langchain-core==0.3.54
 langchain-openai==0.3.14
 langgraph==0.3.31
 weasyprint==65.1
+markdown
