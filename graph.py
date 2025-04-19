@@ -6,8 +6,8 @@ from typing import  Annotated
 import operator
 from openai import OpenAI
 from langgraph.graph import START, END, StateGraph
-import markdown
-from weasyprint import HTML
+# import markdown
+# from weasyprint import HTML
 import streamlit as st
 import os
 
@@ -37,12 +37,12 @@ class BotState(MessagesState):
     design: str
 
 
-def markdown_to_pdf(markdown_text, output_pdf_path):
-    # Convert markdown text to HTML
-    html_text = markdown.markdown(markdown_text)
+# def markdown_to_pdf(markdown_text, output_pdf_path):
+#     # Convert markdown text to HTML
+#     html_text = markdown.markdown(markdown_text)
 
-    # Convert HTML to PDF using WeasyPrint
-    HTML(string=html_text).write_pdf(output_pdf_path)
+#     # Convert HTML to PDF using WeasyPrint
+#     HTML(string=html_text).write_pdf(output_pdf_path)
 
 
 def get_architect_design(state: BotState):
@@ -56,22 +56,22 @@ def get_architect_design(state: BotState):
     return {"design": design_content.content}
 
 
-def pdf_creator(state: BotState):
-    proposed_design = state["design"]
+# def pdf_creator(state: BotState):
+#     proposed_design = state["design"]
 
-    # save the pdf
-    markdown_to_pdf(proposed_design, PDF_NAME)
+#     # save the pdf
+#     markdown_to_pdf(proposed_design, PDF_NAME)
 
 
 # add nodes and edges
 helper_builder = StateGraph(BotState)
 helper_builder.add_node("get_architect_design", get_architect_design)
-helper_builder.add_node("pdf_creator", pdf_creator)
+# helper_builder.add_node("pdf_creator", pdf_creator)
 
 # build graph
 helper_builder.add_edge(START, "get_architect_design")
-helper_builder.add_edge("get_architect_design", "pdf_creator")
-helper_builder.add_edge("pdf_creator", END)
+# helper_builder.add_edge("get_architect_design", "pdf_creator")
+helper_builder.add_edge("get_architect_design", END)
 
 # compile the graph
 helper_graph = helper_builder.compile()
