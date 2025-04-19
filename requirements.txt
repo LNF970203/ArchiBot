@@ -4,3 +4,4 @@ langgraph==0.3.31
 weasyprint==63.0
 Markdown==3.8
 markdown2==2.5.3
+libpango-1.0-0
