@@ -25,17 +25,17 @@ with st.spinner("Designing.....", show_time=True):
 # show th results
 st.markdown(response["design"])
 
-with st.sidebar:
-    # Reading the PDF file as bytes
-    with open(PDF_NAME, 'rb') as f:
-        pdf_data = f.read()
+# with st.sidebar:
+#     # Reading the PDF file as bytes
+#     with open(PDF_NAME, 'rb') as f:
+#         pdf_data = f.read()
 
-    # Provide a download link
-    st.subheader("Download the Design as a PDF")
-    st.download_button(
-        label="Download the Design",
-        data=pdf_data,
-        file_name="architecture_design.pdf",
-        mime="application/pdf",
-        on_click = "ignore"
-    )
+#     # Provide a download link
+#     st.subheader("Download the Design as a PDF")
+#     st.download_button(
+#         label="Download the Design",
+#         data=pdf_data,
+#         file_name="architecture_design.pdf",
+#         mime="application/pdf",
+#         on_click = "ignore"
+#     )
